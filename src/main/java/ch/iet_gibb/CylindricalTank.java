@@ -24,7 +24,7 @@ public class CylindricalTank {
     public double calculateSavedEnergy() {
         double specificHeatCapacity = 4.186; // in J/(kg*K)
 
-        double volume = Math.PI * radius * radius * height;
+        double volume = Math.PI * Math.pow(radius, 2) * height;
 
         double mass = volume * 1000; // angenommene Dichte 1000 kg/m³
 
@@ -36,7 +36,7 @@ public class CylindricalTank {
     /**
      * @return Die maximale Anzahl an Heiztagen
      */
-    public Integer calculateMaxDaysOfHeating() {
-        return (int) (calculateSavedEnergy() / energyPerDay);
+    public int calculateMaxDaysOfHeating() {
+        return (int) Math.floor(calculateSavedEnergy() / energyPerDay);
     }
 }

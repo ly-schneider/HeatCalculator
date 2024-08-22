@@ -37,7 +37,7 @@ public class SquareTank {
     /**
      * @return Die maximale Anzahl an Heiztagen
      */
-    public Integer calculateMaxDaysOfHeating() {
-        return (int) (calculateSavedEnergy() / energyPerDay);
+    public int calculateMaxDaysOfHeating() {
+        return (int) Math.floor(calculateSavedEnergy() / energyPerDay);
     }
 }
