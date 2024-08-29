@@ -1,5 +1,9 @@
 package ch.iet_gibb;
 
+import ch.iet_gibb.model.CylindricalTank;
+import ch.iet_gibb.model.SquareTank;
+import ch.iet_gibb.model.Tank;
+
 import java.util.Scanner;
 
 /**

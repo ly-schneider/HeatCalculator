@@ -1,4 +1,4 @@
-package ch.iet_gibb;
+package ch.iet_gibb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,5 +1,6 @@
 package ch.iet_gibb;
 
+import ch.iet_gibb.model.Tank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

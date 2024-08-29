@@ -1,4 +1,4 @@
-package ch.iet_gibb;
+package ch.iet_gibb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,10 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class CylindricalTank {
+public class Tank {
     private String name;
-    private double radius;
-    private double height;
+    private double volume;
     private double maxTemperature;
     private double energyPerDay;
 
@@ -25,16 +24,7 @@ public class CylindricalTank {
      * @return Energy in kWh
      */
     public double calculateSavedEnergy() {
-        return calculateVolume() * 4.18 * (maxTemperature - 23) / 3600.0;
-    }
-
-    /**
-     * Calculates the volume of the cylindrical tank in m³.
-     *
-     * @return the volume of the cylindrical tank in m³
-     */
-    public double calculateVolume() {
-        return Math.PI * Math.pow(radius, 2) * height;
+        return volume * 4.18 * (maxTemperature - 23) / 3600.0;
     }
 
     /**
@@ -49,7 +39,7 @@ public class CylindricalTank {
     @Override
     public String toString() {
         return "Name: " + name + "\n" +
-                "Fassungsvermögen: " + calculateVolume() + "m³\n" +
+                "Fassungsvermögen: " + volume + "m³\n" +
                 "Tägliche Energie: " + energyPerDay + "kWh\n" +
                 "Gespeicherte Energie: " + calculateSavedEnergy() + "kWh\n" +
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
@@ -62,18 +52,11 @@ public class CylindricalTank {
         this.name = name;
     }
 
-    public void setRadius(double radius) {
-        if (radius <= 0) {
-            throw new IllegalArgumentException("Radius muss grösser als 0 sein.");
+    public void setVolume(double volume) {
+        if (volume <= 0) {
+            throw new IllegalArgumentException("Volumen muss grösser als 0 sein.");
         }
-        this.radius = radius;
-    }
-
-    public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("Höhe muss grösser als 0 sein.");
-        }
-        this.height = height;
+        this.volume = volume;
     }
 
     public void setMaxTemperature(double maxTemperature) {
