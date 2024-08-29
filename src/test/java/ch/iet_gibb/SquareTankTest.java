@@ -43,9 +43,7 @@ public class SquareTankTest {
 
     @Test
     public void testToString() {
-        assert squareTank.toString().equals("Name: Square Tank\n" + "Fassungsvermögen: 6000.0m³\n" +
-                "Gespeicherte Energie: 536.4333333333333kWh\n" +
-                "Maximale Anzahl Heiztage: 268");
+        assert squareTank.toString().equals("Name: Square Tank\n" + "Fassungsvermögen: 6000.0m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 536.4333333333333kWh\n" + "Maximale Anzahl Heiztage: 268");
     }
 
     @Test
@@ -87,9 +85,9 @@ public class SquareTankTest {
     @Test
     public void testInvalidMaxTemperatureInput() {
         try {
-            squareTank.setMaxTemperature(-1);
+            squareTank.setMaxTemperature(29);
         } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Maximale Temperatur muss grösser als 0 sein.");
+            assert e.getMessage().equals("Maximale Temperatur muss mindestens 30 sein.");
         }
     }
 

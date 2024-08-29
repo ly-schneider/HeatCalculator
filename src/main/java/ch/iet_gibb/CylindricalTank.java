@@ -50,6 +50,7 @@ public class CylindricalTank {
     public String toString() {
         return "Name: " + name + "\n" +
                 "Fassungsvermögen: " + calculateVolume() + "m³\n" +
+                "Tägliche Energie: " + energyPerDay + "kWh\n" +
                 "Gespeicherte Energie: " + calculateSavedEnergy() + "kWh\n" +
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
     }
@@ -76,8 +77,8 @@ public class CylindricalTank {
     }
 
     public void setMaxTemperature(double maxTemperature) {
-        if (maxTemperature <= 0) {
-            throw new IllegalArgumentException("Maximale Temperatur muss grösser als 0 sein.");
+        if (maxTemperature < 30) {
+            throw new IllegalArgumentException("Maximale Temperatur muss mindestens 30 sein.");
         }
         this.maxTemperature = maxTemperature;
     }

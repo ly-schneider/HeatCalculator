@@ -36,9 +36,7 @@ public class TankTest {
 
     @Test
     public void testToString() {
-        assert tank.toString().equals("Name: Tank\n" + "Fassungsvermögen: 1000.0m³\n" +
-                "Gespeicherte Energie: 89.40555555555555kWh\n" +
-                "Maximale Anzahl Heiztage: 44");
+        assert tank.toString().equals("Name: Tank\n" + "Fassungsvermögen: 1000.0m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 89.40555555555555kWh\n" + "Maximale Anzahl Heiztage: 44");
     }
 
     @Test
@@ -62,9 +60,9 @@ public class TankTest {
     @Test
     public void testInvalidMaxTemperatureInput() {
         try {
-            tank.setMaxTemperature(-1);
+            tank.setMaxTemperature(29);
         } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Maximale Temperatur muss grösser als 0 sein.");
+            assert e.getMessage().equals("Maximale Temperatur muss mindestens 30 sein.");
         }
     }
 

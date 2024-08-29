@@ -42,9 +42,7 @@ public class CylindricalTankTest {
 
     @Test
     public void testToString() {
-        assert cylindricalTank.toString().equals("Name: Cylindrical Tank\n" + "Fassungsvermögen: 9424.77796076938m³\n" +
-                "Gespeicherte Energie: 842.6275095703423kWh\n" +
-                "Maximale Anzahl Heiztage: 421");
+        assert cylindricalTank.toString().equals("Name: Cylindrical Tank\n" + "Fassungsvermögen: 9424.77796076938m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 842.6275095703423kWh\n" + "Maximale Anzahl Heiztage: 421");
     }
 
     @Test
@@ -77,9 +75,9 @@ public class CylindricalTankTest {
     @Test
     public void testInvalidMaxTemperatureInput() {
         try {
-            cylindricalTank.setMaxTemperature(-1);
+            cylindricalTank.setMaxTemperature(29);
         } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Maximale Temperatur muss grösser als 0 sein.");
+            assert e.getMessage().equals("Maximale Temperatur muss mindestens 30 sein.");
         }
     }
 
