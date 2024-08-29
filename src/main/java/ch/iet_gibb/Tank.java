@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Levyn Schneider
- * @version 1.0
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Data
 @AllArgsConstructor
@@ -17,20 +18,18 @@ public class Tank {
     private double energyPerDay;
 
     /**
-     * @return Die gespeicherte Energie
+     * Returns the stored energy in the tank.
+     *
+     * @return Energy in kWh
      */
     public double calculateSavedEnergy() {
-        double specificHeatCapacity = 4.186; // in J/(kg*K)
-
-        double mass = volume * 1000; // angenommene Dichte 1000 kg/m³
-
-        double temperatureDifference = maxTemperature - 0;
-
-        return mass * specificHeatCapacity * temperatureDifference; // Q = m * c * ΔT
+        return volume * 4.18 * (maxTemperature - 23) / 3600.0;
     }
 
     /**
-     * @return Die maximale Anzahl an Heiztagen
+     * Calculates the maximum number of heating days.
+     *
+     * @return the maximum number of heating days
      */
     public int calculateMaxDaysOfHeating() {
         return (int) Math.floor(calculateSavedEnergy() / energyPerDay);
