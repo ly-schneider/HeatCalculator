@@ -42,8 +42,53 @@ public class CylindricalTankTest {
 
     @Test
     public void testToString() {
-        assert cylindricalTank.toString().equals("Fassungsvermögen: 9424.77796076938m³\n" +
+        assert cylindricalTank.toString().equals("Name: Cylindrical Tank\n" + "Fassungsvermögen: 9424.77796076938m³\n" +
                 "Gespeicherte Energie: 842.6275095703423kWh\n" +
                 "Maximale Anzahl Heiztage: 421");
+    }
+
+    @Test
+    public void testInvalidNameInput() {
+        try {
+            cylindricalTank.setName("");
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Name darf nicht leer sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidRadiusInput() {
+        try {
+            cylindricalTank.setRadius(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Radius muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidHeightInput() {
+        try {
+            cylindricalTank.setHeight(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Höhe muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidMaxTemperatureInput() {
+        try {
+            cylindricalTank.setMaxTemperature(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Maximale Temperatur muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidEnergyPerDayInput() {
+        try {
+            cylindricalTank.setEnergyPerDay(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Energie pro Tag muss grösser als 0 sein.");
+        }
     }
 }

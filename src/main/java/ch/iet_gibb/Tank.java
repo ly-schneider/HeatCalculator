@@ -2,6 +2,7 @@ package ch.iet_gibb;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -9,10 +10,11 @@ import lombok.NoArgsConstructor;
  * @version 1.0.0
  * @since 1.0.0
  */
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class Tank {
+    private String name;
     private double volume;
     private double maxTemperature;
     private double energyPerDay;
@@ -33,5 +35,41 @@ public class Tank {
      */
     public int calculateMaxDaysOfHeating() {
         return (int) Math.floor(calculateSavedEnergy() / energyPerDay);
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\n" +
+                "Fassungsvermögen: " + volume + "m³\n" +
+                "Gespeicherte Energie: " + calculateSavedEnergy() + "kWh\n" +
+                "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
+    }
+
+    public void setName(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("Name darf nicht leer sein.");
+        }
+        this.name = name;
+    }
+
+    public void setVolume(double volume) {
+        if (volume <= 0) {
+            throw new IllegalArgumentException("Volumen muss grösser als 0 sein.");
+        }
+        this.volume = volume;
+    }
+
+    public void setMaxTemperature(double maxTemperature) {
+        if (maxTemperature <= 0) {
+            throw new IllegalArgumentException("Maximale Temperatur muss grösser als 0 sein.");
+        }
+        this.maxTemperature = maxTemperature;
+    }
+
+    public void setEnergyPerDay(double energyPerDay) {
+        if (energyPerDay <= 0) {
+            throw new IllegalArgumentException("Energie pro Tag muss grösser als 0 sein.");
+        }
+        this.energyPerDay = energyPerDay;
     }
 }

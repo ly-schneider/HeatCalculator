@@ -49,7 +49,8 @@ public class SquareTank {
 
     @Override
     public String toString() {
-        return "Fassungsvermögen: " + calculateVolume() + "m³\n" +
+        return "Name: " + name + "\n" +
+                "Fassungsvermögen: " + calculateVolume() + "m³\n" +
                 "Gespeicherte Energie: " + calculateSavedEnergy() + "kWh\n" +
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
     }

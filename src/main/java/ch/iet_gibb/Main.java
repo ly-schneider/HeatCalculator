@@ -55,5 +55,27 @@ public class Main {
         cylindricalTank.setEnergyPerDay(scanner.nextDouble());
 
         System.out.println("\n" + cylindricalTank);
+
+        scanner.nextLine();
+
+        /* Tank setup */
+        Tank tank = new Tank();
+
+        System.out.println("\nTank");
+        System.out.print("Name: ");
+        tank.setName(scanner.nextLine());
+
+        System.out.print("Volumen (m³): ");
+        tank.setVolume(scanner.nextDouble());
+
+        System.out.print("Maximale Temperatur (C): ");
+        tank.setMaxTemperature(scanner.nextDouble());
+
+        System.out.print("Energie pro Tag (kWh): ");
+        tank.setEnergyPerDay(scanner.nextDouble());
+
+        System.out.println("\n" + tank);
+
+        scanner.close();
     }
 }

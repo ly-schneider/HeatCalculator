@@ -43,8 +43,62 @@ public class SquareTankTest {
 
     @Test
     public void testToString() {
-        assert squareTank.toString().equals("Fassungsvermögen: 6000.0m³\n" +
+        assert squareTank.toString().equals("Name: Square Tank\n" + "Fassungsvermögen: 6000.0m³\n" +
                 "Gespeicherte Energie: 536.4333333333333kWh\n" +
                 "Maximale Anzahl Heiztage: 268");
+    }
+
+    @Test
+    public void testInvalidNameInput() {
+        try {
+            squareTank.setName("");
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Name darf nicht leer sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidWidthInput() {
+        try {
+            squareTank.setWidth(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Breite muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidHeightInput() {
+        try {
+            squareTank.setHeight(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Höhe muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidLengthInput() {
+        try {
+            squareTank.setLength(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Länge muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidMaxTemperatureInput() {
+        try {
+            squareTank.setMaxTemperature(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Maximale Temperatur muss grösser als 0 sein.");
+        }
+    }
+
+    @Test
+    public void testInvalidEnergyPerDayInput() {
+        try {
+            squareTank.setEnergyPerDay(-1);
+        } catch (IllegalArgumentException e) {
+            assert e.getMessage().equals("Energie pro Tag muss grösser als 0 sein.");
+        }
     }
 }
