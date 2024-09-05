@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 1.0.1
  * @since 1.0.0
  */
 @AllArgsConstructor
@@ -55,6 +55,11 @@ public class CylindricalTank {
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
     }
 
+    /**
+     * Sets the name of the tank.
+     *
+     * @param name the name of the tank
+     */
     public void setName(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Name darf nicht leer sein.");
@@ -62,6 +67,11 @@ public class CylindricalTank {
         this.name = name;
     }
 
+    /**
+     * Sets the radius of the tank.
+     *
+     * @param radius the radius of the tank
+     */
     public void setRadius(double radius) {
         if (radius <= 0) {
             throw new IllegalArgumentException("Radius muss grösser als 0 sein.");
@@ -69,6 +79,11 @@ public class CylindricalTank {
         this.radius = radius;
     }
 
+    /**
+     * Sets the height of the tank.
+     *
+     * @param height the height of the tank
+     */
     public void setHeight(double height) {
         if (height <= 0) {
             throw new IllegalArgumentException("Höhe muss grösser als 0 sein.");
@@ -76,6 +91,11 @@ public class CylindricalTank {
         this.height = height;
     }
 
+    /**
+     * Sets the maximum temperature of the tank.
+     *
+     * @param maxTemperature the maximum temperature of the tank
+     */
     public void setMaxTemperature(double maxTemperature) {
         if (maxTemperature < 30) {
             throw new IllegalArgumentException("Maximale Temperatur muss mindestens 30 sein.");
@@ -83,6 +103,11 @@ public class CylindricalTank {
         this.maxTemperature = maxTemperature;
     }
 
+    /**
+     * Sets the energy per day of the tank.
+     *
+     * @param energyPerDay the energy per day of the tank
+     */
     public void setEnergyPerDay(double energyPerDay) {
         if (energyPerDay <= 0) {
             throw new IllegalArgumentException("Energie pro Tag muss grösser als 0 sein.");

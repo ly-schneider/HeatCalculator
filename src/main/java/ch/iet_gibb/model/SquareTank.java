@@ -56,6 +56,11 @@ public class SquareTank {
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
     }
 
+    /**
+     * Sets the name of the tank.
+     *
+     * @param name the name of the tank
+     */
     public void setName(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Name darf nicht leer sein.");
@@ -63,6 +68,11 @@ public class SquareTank {
         this.name = name;
     }
 
+    /**
+     * Sets the width of the tank.
+     *
+     * @param width the width of the tank
+     */
     public void setWidth(double width) {
         if (width <= 0) {
             throw new IllegalArgumentException("Breite muss grösser als 0 sein.");
@@ -70,6 +80,11 @@ public class SquareTank {
         this.width = width;
     }
 
+    /**
+     * Sets the height of the tank.
+     *
+     * @param height the height of the tank
+     */
     public void setHeight(double height) {
         if (height <= 0) {
             throw new IllegalArgumentException("Höhe muss grösser als 0 sein.");
@@ -77,6 +92,11 @@ public class SquareTank {
         this.height = height;
     }
 
+    /**
+     * Sets the length of the tank.
+     *
+     * @param length the length of the tank
+     */
     public void setLength(double length) {
         if (length <= 0) {
             throw new IllegalArgumentException("Länge muss grösser als 0 sein.");
@@ -84,6 +104,11 @@ public class SquareTank {
         this.length = length;
     }
 
+    /**
+     * Sets the maximum temperature of the tank.
+     *
+     * @param maxTemperature the maximum temperature of the tank
+     */
     public void setMaxTemperature(double maxTemperature) {
         if (maxTemperature < 30) {
             throw new IllegalArgumentException("Maximale Temperatur muss mindestens 30 sein.");
@@ -91,6 +116,11 @@ public class SquareTank {
         this.maxTemperature = maxTemperature;
     }
 
+    /**
+     * Sets the energy per day of the tank.
+     *
+     * @param energyPerDay the energy per day of the tank
+     */
     public void setEnergyPerDay(double energyPerDay) {
         if (energyPerDay <= 0) {
             throw new IllegalArgumentException("Energie pro Tag muss grösser als 0 sein.");

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 1.0.1
  * @since 1.0.0
  */
 @AllArgsConstructor
@@ -45,6 +45,11 @@ public class Tank {
                 "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
     }
 
+    /**
+     * Sets the name of the tank.
+     *
+     * @param name the name of the tank
+     */
     public void setName(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Name darf nicht leer sein.");
@@ -52,6 +57,11 @@ public class Tank {
         this.name = name;
     }
 
+    /**
+     * Sets the volume of the tank.
+     *
+     * @param volume the volume of the tank
+     */
     public void setVolume(double volume) {
         if (volume <= 0) {
             throw new IllegalArgumentException("Volumen muss grösser als 0 sein.");
@@ -59,6 +69,11 @@ public class Tank {
         this.volume = volume;
     }
 
+    /**
+     * Sets the maximum temperature of the tank.
+     *
+     * @param maxTemperature the maximum temperature of the tank
+     */
     public void setMaxTemperature(double maxTemperature) {
         if (maxTemperature < 30) {
             throw new IllegalArgumentException("Maximale Temperatur muss mindestens 30 sein.");
@@ -66,6 +81,11 @@ public class Tank {
         this.maxTemperature = maxTemperature;
     }
 
+    /**
+     * Sets the energy per day of the tank.
+     *
+     * @param energyPerDay the energy per day of the tank
+     */
     public void setEnergyPerDay(double energyPerDay) {
         if (energyPerDay <= 0) {
             throw new IllegalArgumentException("Energie pro Tag muss grösser als 0 sein.");

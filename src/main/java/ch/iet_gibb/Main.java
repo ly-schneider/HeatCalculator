@@ -8,8 +8,15 @@ import java.util.Scanner;
 
 /**
  * @author Levyn Schneider
+ * @version 1.0.1
+ * @since 1.0.0
  */
 public class Main {
+    /**
+     * Main method
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
