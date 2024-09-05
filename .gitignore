@@ -240,4 +240,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# PlantUML files
+*.puml
+
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,macos,intellij,visualstudiocode,windows

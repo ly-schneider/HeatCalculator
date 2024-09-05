@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 1.1.0
  * @since 1.0.0
  */
 public class SquareTankTest {
@@ -14,37 +14,30 @@ public class SquareTankTest {
 
     @BeforeEach
     public void setUp() {
-        squareTank = new SquareTank("Square Tank", 10.0, 30.0, 20.0, 100.0, 2.0);
+        squareTank = new SquareTank("Square Tank", 100.0, 100.0, 2.0);
     }
 
     @Test
     public void testConstructor() {
         assert squareTank.getName().equals("Square Tank");
-        assert squareTank.getWidth() == 10.0;
-        assert squareTank.getHeight() == 30.0;
-        assert squareTank.getLength() == 20.0;
+        assert squareTank.getVolume() == 100.00;
         assert squareTank.getMaxTemperature() == 100.0;
         assert squareTank.getEnergyPerDay() == 2.0;
     }
 
     @Test
     public void testCalculateSavedEnergy() {
-        assert squareTank.calculateSavedEnergy() == 536.4333333333333;
-    }
-
-    @Test
-    public void testCalculateVolume() {
-        assert squareTank.calculateVolume() == 6000.0;
+        assert squareTank.calculateSavedEnergy() == 8.940555555555555;
     }
 
     @Test
     public void testCalculateMaxDaysOfHeating() {
-        assert squareTank.calculateMaxDaysOfHeating() == 268;
+        assert squareTank.calculateMaxDaysOfHeating() == 4;
     }
 
     @Test
     public void testToString() {
-        assert squareTank.toString().equals("Name: Square Tank\n" + "Fassungsvermögen: 6000.0m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 536.4333333333333kWh\n" + "Maximale Anzahl Heiztage: 268");
+        assert squareTank.toString().equals("Name: Square Tank\n" + "Fassungsvermögen: 100.0m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 8.940555555555555kWh\n" + "Maximale Anzahl Heiztage: 4");
     }
 
     @Test
@@ -57,29 +50,11 @@ public class SquareTankTest {
     }
 
     @Test
-    public void testInvalidWidthInput() {
+    public void testInvalidVolumeInput() {
         try {
-            squareTank.setWidth(-1);
+            squareTank.setVolume(-1);
         } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Breite muss grösser als 0 sein.");
-        }
-    }
-
-    @Test
-    public void testInvalidHeightInput() {
-        try {
-            squareTank.setHeight(-1);
-        } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Höhe muss grösser als 0 sein.");
-        }
-    }
-
-    @Test
-    public void testInvalidLengthInput() {
-        try {
-            squareTank.setLength(-1);
-        } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Länge muss grösser als 0 sein.");
+            assert e.getMessage().equals("Volumen muss grösser als 0 sein.");
         }
     }
 

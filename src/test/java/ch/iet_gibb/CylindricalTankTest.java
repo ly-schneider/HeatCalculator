@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 1.1.0
  * @since 1.0.0
  */
 public class CylindricalTankTest {
@@ -14,36 +14,30 @@ public class CylindricalTankTest {
 
     @BeforeEach
     public void setUp() {
-        cylindricalTank = new CylindricalTank("Cylindrical Tank", 10.0, 30.0, 100.0, 2.0);
+        cylindricalTank = new CylindricalTank("Cylindrical Tank", 100.0,100.0, 2.0);
     }
 
     @Test
     public void testConstructor() {
         assert cylindricalTank.getName().equals("Cylindrical Tank");
-        assert cylindricalTank.getRadius() == 10.0;
-        assert cylindricalTank.getHeight() == 30.0;
+        assert cylindricalTank.getVolume() == 100.0;
         assert cylindricalTank.getMaxTemperature() == 100.0;
         assert cylindricalTank.getEnergyPerDay() == 2.0;
     }
 
     @Test
     public void testCalculateSavedEnergy() {
-        assert cylindricalTank.calculateSavedEnergy() == 842.6275095703423;
-    }
-
-    @Test
-    public void testCalculateVolume() {
-        assert cylindricalTank.calculateVolume() == 9424.77796076938;
+        assert cylindricalTank.calculateSavedEnergy() == 8.940555555555555;
     }
 
     @Test
     public void testCalculateMaxDaysOfHeating() {
-        assert cylindricalTank.calculateMaxDaysOfHeating() == 421;
+        assert cylindricalTank.calculateMaxDaysOfHeating() == 4;
     }
 
     @Test
     public void testToString() {
-        assert cylindricalTank.toString().equals("Name: Cylindrical Tank\n" + "Fassungsvermögen: 9424.77796076938m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 842.6275095703423kWh\n" + "Maximale Anzahl Heiztage: 421");
+        assert cylindricalTank.toString().equals("Name: Cylindrical Tank\n" + "Fassungsvermögen: 100.0m³\n" + "Tägliche Energie: 2.0kWh\n" + "Gespeicherte Energie: 8.940555555555555kWh\n" + "Maximale Anzahl Heiztage: 4");
     }
 
     @Test
@@ -56,20 +50,11 @@ public class CylindricalTankTest {
     }
 
     @Test
-    public void testInvalidRadiusInput() {
+    public void testInvalidVolumeInput() {
         try {
-            cylindricalTank.setRadius(-1);
+            cylindricalTank.setVolume(-1);
         } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Radius muss grösser als 0 sein.");
-        }
-    }
-
-    @Test
-    public void testInvalidHeightInput() {
-        try {
-            cylindricalTank.setHeight(-1);
-        } catch (IllegalArgumentException e) {
-            assert e.getMessage().equals("Höhe muss grösser als 0 sein.");
+            assert e.getMessage().equals("Volumen muss grösser als 0 sein.");
         }
     }
 
