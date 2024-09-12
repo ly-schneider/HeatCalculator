@@ -242,5 +242,6 @@ $RECYCLE.BIN/
 
 # PlantUML files
 *.puml
+!/src/main/resources/**/*.puml
 
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,macos,intellij,visualstudiocode,windows

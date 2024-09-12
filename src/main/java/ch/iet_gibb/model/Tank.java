@@ -2,10 +2,9 @@ package ch.iet_gibb.model;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.2
- * @since 1.0.0
+ * @version 1.1.0
  */
-public class Tank {
+public abstract class Tank {
     private String name; // Name of the tank
     private double volume; // Volume of the tank
     private double maxTemperature; // Maximum temperature of the tank
@@ -44,6 +43,11 @@ public class Tank {
         return (int) Math.floor(calculateSavedEnergy() / energyPerDay);
     }
 
+    /**
+     * Returns the tank as a string.
+     *
+     * @return the tank as a string
+     */
     @Override
     public String toString() {
         return "Name: " + name + "\n" +
