@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 1.0.1
  */
 public class HeatCalculatorView {
     private final ArrayList<Tank> models; // Array of Tank objects
@@ -24,8 +24,6 @@ public class HeatCalculatorView {
      * Display the models
      */
     public void display() {
-        for (Tank model : models) {
-            System.out.println("\n" + model);
-        }
+        models.forEach(model -> System.out.println("\n" + model));
     }
 }

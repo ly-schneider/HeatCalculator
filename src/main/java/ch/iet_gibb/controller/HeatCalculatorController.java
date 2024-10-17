@@ -19,10 +19,10 @@ public class HeatCalculatorController {
      */
     public HeatCalculatorController() {
         /* Square Tank setup */
-        SquareTank squareTank = new SquareTank("Square Tank", 100.0, 100.0, 2.0);
+        SquareTank squareTank = new SquareTank("Square Tank", 20, 20, 20, 100.0, 2.0);
 
         /* Cylindrical Tank setup */
-        CylindricalTank cylindricalTank = new CylindricalTank("Cylindrical Tank", 100.0, 100.0, 2.0);
+        CylindricalTank cylindricalTank = new CylindricalTank("Cylindrical Tank", 50, 20, 100.0, 2.0);
 
         ArrayList<Tank> models = new ArrayList<>();
         models.add(squareTank);

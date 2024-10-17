@@ -2,28 +2,14 @@ package ch.iet_gibb.model;
 
 /**
  * @author Levyn Schneider
- * @version 1.1.0
+ * @version 3.0.0
  */
 public abstract class Tank {
     private String name; // Name of the tank
-    private double volume; // Volume of the tank
     private double maxTemperature; // Maximum temperature of the tank
     private double energyPerDay; // Energy per day of the tank
 
-    /**
-     * Default constructor
-     *
-     * @param name           the name of the tank
-     * @param volume         the volume of the tank
-     * @param maxTemperature the maximum temperature of the tank
-     * @param energyPerDay   the energy per day of the tank
-     */
-    public Tank(String name, double volume, double maxTemperature, double energyPerDay) {
-        setName(name);
-        setVolume(volume);
-        setMaxTemperature(maxTemperature);
-        setEnergyPerDay(energyPerDay);
-    }
+    public abstract double calculateVolume();
 
     /**
      * Returns the stored energy in the tank.
@@ -31,7 +17,7 @@ public abstract class Tank {
      * @return Energy in kWh
      */
     public double calculateSavedEnergy() {
-        return volume * 4.18 * (maxTemperature - 23) / 3600.0;
+        return calculateVolume() * 4.18 * (maxTemperature - 23) / 3600.0;
     }
 
     /**
@@ -44,35 +30,12 @@ public abstract class Tank {
     }
 
     /**
-     * Returns the tank as a string.
-     *
-     * @return the tank as a string
-     */
-    @Override
-    public String toString() {
-        return "Name: " + name + "\n" +
-                "Fassungsvermögen: " + volume + "m³\n" +
-                "Tägliche Energie: " + energyPerDay + "kWh\n" +
-                "Gespeicherte Energie: " + calculateSavedEnergy() + "kWh\n" +
-                "Maximale Anzahl Heiztage: " + calculateMaxDaysOfHeating();
-    }
-
-    /**
      * Returns the name of the tank.
      *
      * @return the name of the tank
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Returns the volume of the tank.
-     *
-     * @return the volume of the tank
-     */
-    public double getVolume() {
-        return volume;
     }
 
     /**
@@ -103,18 +66,6 @@ public abstract class Tank {
             throw new IllegalArgumentException("Name darf nicht leer sein.");
         }
         this.name = name;
-    }
-
-    /**
-     * Sets the volume of the tank.
-     *
-     * @param volume the volume of the tank
-     */
-    public void setVolume(double volume) {
-        if (volume <= 0) {
-            throw new IllegalArgumentException("Volumen muss grösser als 0 sein.");
-        }
-        this.volume = volume;
     }
 
     /**
