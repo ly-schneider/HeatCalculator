@@ -1,15 +1,32 @@
 package ch.iet_gibb.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ch.iet_gibb.property.Property;
+
 /**
  * @author Levyn Schneider
- * @version 3.0.0
+ * @version 4.0.0
  */
-public abstract class Tank {
+public abstract class Tank implements InterfaceTank {
     private String name; // Name of the tank
     private double maxTemperature; // Maximum temperature of the tank
     private double energyPerDay; // Energy per day of the tank
 
     public abstract double calculateVolume();
+
+    @Override
+    public List<Property> getProperties() {
+        List<Property> properties = new ArrayList<>();
+        properties.add(new Property("Maximale Temperatur", String.valueOf(getMaxTemperature())));
+        properties.add(new Property("Name", getName()));
+        properties.add(new Property("Fassungsvermögen", String.valueOf(calculateVolume())));
+        properties.add(new Property("Tägliche Energie", String.valueOf(getEnergyPerDay())));
+        properties.add(new Property("Tage heizen", String.valueOf(calculateMaxDaysOfHeating())));
+        properties.add(new Property("Gespeicherte Energie", String.valueOf(calculateSavedEnergy())));
+        return properties;
+    }
 
     /**
      * Returns the stored energy in the tank.

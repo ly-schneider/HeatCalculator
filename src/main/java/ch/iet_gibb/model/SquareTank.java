@@ -1,8 +1,12 @@
 package ch.iet_gibb.model;
 
+import java.util.List;
+
+import ch.iet_gibb.property.Property;
+
 /**
  * @author Levyn Schneider
- * @version 3.0.0
+ * @version 4.0.0
  */
 public class SquareTank extends Tank {
     private double height;
@@ -19,13 +23,28 @@ public class SquareTank extends Tank {
      * @param maxTemperature the maximum temperature of the tank
      * @param energyPerDay   the energy per day of the tank
      */
-    public SquareTank(String name, double height, double width, double length, double maxTemperature, double energyPerDay) {
+    public SquareTank(String name, double height, double width, double length, double maxTemperature,
+            double energyPerDay) {
         setName(name);
         setHeight(height);
         setWidth(width);
         setLength(length);
         setMaxTemperature(maxTemperature);
         setEnergyPerDay(energyPerDay);
+    }
+
+    @Override
+    public String getTitle() {
+        return "Quadratischer Tank";
+    }
+
+    @Override
+    public List<Property> getProperties() {
+        List<Property> properties = super.getProperties();
+        properties.add(new Property("Höhe", String.valueOf(getHeight())));
+        properties.add(new Property("Breite", String.valueOf(getWidth())));
+        properties.add(new Property("Länge", String.valueOf(getLength())));
+        return properties;
     }
 
     /**

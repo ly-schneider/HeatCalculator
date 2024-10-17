@@ -1,41 +1,54 @@
 package ch.iet_gibb.controller;
 
-import ch.iet_gibb.model.CylindricalTank;
-import ch.iet_gibb.model.SquareTank;
+import java.util.List;
+
 import ch.iet_gibb.model.Tank;
 import ch.iet_gibb.view.HeatCalculatorView;
-
-import java.util.ArrayList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 /**
  * @author Levyn Schneider
- * @version 1.0.0
+ * @version 4.0.0
  */
-public class HeatCalculatorController {
-    private final HeatCalculatorView view; // Instance of the HeatCalculatorView class
+public class HeatCalculatorController implements EventHandler<ActionEvent> {
+    protected List<Tank> models;
+    protected HeatCalculatorView view;
+    protected int currentModel = 0;
 
     /**
      * Default constructor
+     * 
+     * @param models
      */
-    public HeatCalculatorController() {
-        /* Square Tank setup */
-        SquareTank squareTank = new SquareTank("Square Tank", 20, 20, 20, 100.0, 2.0);
-
-        /* Cylindrical Tank setup */
-        CylindricalTank cylindricalTank = new CylindricalTank("Cylindrical Tank", 50, 20, 100.0, 2.0);
-
-        ArrayList<Tank> models = new ArrayList<>();
-        models.add(squareTank);
-        models.add(cylindricalTank);
-
-        /* Initialize the view */
-        this.view = new HeatCalculatorView(models);
+    public HeatCalculatorController(List<Tank> models) {
+        this.models = models;
     }
 
-    /**
-     * Run the controller
-     */
-    public void run() {
-        view.display();
+    public void setView(HeatCalculatorView view) {
+        this.view = view;
+    }
+
+    public void startView() {
+        view.startView(models.get(currentModel));
+    }
+
+    public void showNextLabel() {
+        if (currentModel < models.size() - 1) {
+            currentModel++;
+        } else {
+            currentModel = 0;
+        }
+
+        view.startView(models.get(currentModel));
+    }
+
+    public String getModel() {
+        return models.get(currentModel).toString();
+    }
+
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        showNextLabel();
     }
 }

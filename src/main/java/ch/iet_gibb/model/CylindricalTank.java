@@ -1,8 +1,12 @@
 package ch.iet_gibb.model;
 
+import java.util.List;
+
+import ch.iet_gibb.property.Property;
+
 /**
  * @author Levyn Schneider
- * @version 3.0.0
+ * @version 4.0.0
  */
 public class CylindricalTank extends Tank {
     private double height;
@@ -23,6 +27,19 @@ public class CylindricalTank extends Tank {
         setDiameter(diameter);
         setMaxTemperature(maxTemperature);
         setEnergyPerDay(energyPerDay);
+    }
+
+    @Override
+    public String getTitle() {
+        return "Zylindrischer Tank";
+    }
+
+    @Override
+    public List<Property> getProperties() {
+        List<Property> properties = super.getProperties();
+        properties.add(new Property("Höhe", String.valueOf(getHeight())));
+        properties.add(new Property("Durchmesser", String.valueOf(getDiameter())));
+        return properties;
     }
 
     /**
