@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Levyn Schneider
- * @version 4.0.0
+ * @version 4.1.0
  */
 public class HeatCalculatorView {
     private Stage stage;
@@ -66,7 +66,7 @@ public class HeatCalculatorView {
         btnNext.setOnAction(controller);
         layout.getChildren().add(btnNext);
 
-        Scene scene = new Scene(layout, 600, 600);
+        Scene scene = new Scene(layout, 600, 300);
         stage.setScene(scene);
         stage.show();
     }
@@ -81,17 +81,10 @@ public class HeatCalculatorView {
         Font propertiesFont = Font.font("Tahoma", FontWeight.BOLD, 16);
 
         Text keyText = new Text();
-        keyText.setText(property.getKey());
+        keyText.setText(property.getKey() + " = " + property.getValue());
         keyText.setFont(propertiesFont);
-        keyText.setWrappingWidth(200);
+        keyText.setWrappingWidth(400);
         keyText.setTextAlignment(TextAlignment.LEFT);
         layout.getChildren().add(keyText);
-
-        Text valueText = new Text();
-        valueText.setText(property.getValue());
-        valueText.setFont(propertiesFont);
-        valueText.setWrappingWidth(200);
-        valueText.setTextAlignment(TextAlignment.RIGHT);
-        layout.getChildren().add(valueText);
     }
 }

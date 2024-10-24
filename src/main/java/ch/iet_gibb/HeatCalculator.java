@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Levyn Schneider
- * @version 4.0.0
+ * @version 4.1.0
  */
 public class HeatCalculator extends Application {
     /**
@@ -22,13 +22,14 @@ public class HeatCalculator extends Application {
      * @param args command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         List<Tank> models = createModels();
         HeatCalculatorController controller = new HeatCalculatorController(models);
+        stage.setTitle("HeatCalculator");
         HeatCalculatorView view = new HeatCalculatorView(stage, controller);
         controller.setView(view);
         controller.startView();

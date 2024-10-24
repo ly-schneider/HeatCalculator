@@ -2,7 +2,7 @@ package ch.iet_gibb.property;
 
 /**
  * @author Levyn Schneider
- * @version 4.0.0
+ * @version 4.1.0
  */
 public class Property {
   private String key;

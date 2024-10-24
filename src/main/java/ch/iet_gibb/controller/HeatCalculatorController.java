@@ -9,7 +9,7 @@ import javafx.event.EventHandler;
 
 /**
  * @author Levyn Schneider
- * @version 4.0.0
+ * @version 4.1.0
  */
 public class HeatCalculatorController implements EventHandler<ActionEvent> {
     protected List<Tank> models;
