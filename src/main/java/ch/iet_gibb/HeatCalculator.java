@@ -7,6 +7,7 @@ import ch.iet_gibb.controller.HeatCalculatorController;
 import ch.iet_gibb.model.CylindricalTank;
 import ch.iet_gibb.model.SquareTank;
 import ch.iet_gibb.model.Tank;
+import ch.iet_gibb.view.AlternativeHeatCalculatorView;
 import ch.iet_gibb.view.HeatCalculatorView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -31,6 +32,7 @@ public class HeatCalculator extends Application {
         HeatCalculatorController controller = new HeatCalculatorController(models);
         stage.setTitle("HeatCalculator");
         HeatCalculatorView view = new HeatCalculatorView(stage, controller);
+        AlternativeHeatCalculatorView alternativeView = new AlternativeHeatCalculatorView(stage, controller);
         controller.setView(view);
         controller.startView();
     }
@@ -44,7 +46,6 @@ public class HeatCalculator extends Application {
         List<Tank> models = new ArrayList<>();
         models.add(new SquareTank("Square Tank", 20, 20, 20, 100.0, 2.0));
         models.add(new CylindricalTank("Cylindrical Tank", 50, 20, 100.0, 2.0));
-
         return models;
     }
 }

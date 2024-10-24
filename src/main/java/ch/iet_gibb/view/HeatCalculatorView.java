@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * @author Levyn Schneider
  * @version 4.1.0
  */
-public class HeatCalculatorView {
+public class HeatCalculatorView implements ControllerViewInterface {
     private Stage stage;
     private HeatCalculatorController controller;
 

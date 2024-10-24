@@ -3,7 +3,7 @@ package ch.iet_gibb.controller;
 import java.util.List;
 
 import ch.iet_gibb.model.Tank;
-import ch.iet_gibb.view.HeatCalculatorView;
+import ch.iet_gibb.view.ControllerViewInterface;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -13,7 +13,7 @@ import javafx.event.EventHandler;
  */
 public class HeatCalculatorController implements EventHandler<ActionEvent> {
     protected List<Tank> models;
-    protected HeatCalculatorView view;
+    protected ControllerViewInterface view;
     protected int currentModel = 0;
 
     /**
@@ -25,7 +25,7 @@ public class HeatCalculatorController implements EventHandler<ActionEvent> {
         this.models = models;
     }
 
-    public void setView(HeatCalculatorView view) {
+    public void setView(ControllerViewInterface view) {
         this.view = view;
     }
 
